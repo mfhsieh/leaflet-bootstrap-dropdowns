@@ -23,7 +23,7 @@
     height: 2.5rem;
     padding: 0;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: rgba(var(--primary-rgb), 1);
     background-color: white !important;
     border: .125rem solid rgba(var(--primary-rgb), 1) !important;
@@ -41,8 +41,8 @@
 
 .leaflet-bootstrap-dropdowns .btn svg {
     fill: rgba(var(--primary-rgb), 1);
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .leaflet-bootstrap-dropdowns .btn:hover,

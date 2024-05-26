@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
     <script src="https://kit.fontawesome.com/8132850410.js" crossorigin="anonymous"></script>
 
-    <script src="src/leaflet-bootstrap-dropdowns.js"></script>
     <link rel="stylesheet" href="examples/demo.css" />
+    <script src="src/leaflet-bootstrap-dropdowns.js"></script>
 
     <style>
         html {
@@ -58,6 +61,37 @@
             minZoom: 7,
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+        }).addTo(map);
+
+        new L.Control.BootstrapDropdowns({
+            position: "topleft",
+            className: "menu-1",
+            menuItems: [{
+                html: '<i class="fas fa-map-marked-alt"></i> &nbsp;Do Something',
+                afterClick: () => {
+                    alert("Do Something");
+                },
+                title: "Do Something",
+            },
+            {
+                html: '<i class="fas fa-share"></i> &nbsp;Share',
+                current: true,
+                title: "Share",
+            },
+            {
+                html: '<i class="fas fa-external-link-alt"></i> &nbsp;External Link',
+                href: "https://leafletjs.com/",
+                target: "_blank",
+                title: "External Link",
+            },
+            {
+                separator: true,
+            },
+            {
+                html: '<i class="fas fa-info-circle"></i> &nbsp;About',
+                href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",
+                title: "About",
+            }],
         }).addTo(map);
 
     </script>

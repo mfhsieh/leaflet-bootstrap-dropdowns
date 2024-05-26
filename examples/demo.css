@@ -1,0 +1,105 @@
+/* 
+ * Leaflet Control BootstrapDropdowns v0.1 - 2024-05-24 
+ * 
+ * Copyright 2024 mfhsieh
+ * mfhsieh@gmail.com 
+ * 
+ * Licensed under the MIT license. 
+ * 
+ * Demos: 
+ * https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/
+ * 
+ * Source: 
+ * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git 
+ * 
+ */
+.leaflet-bootstrap-dropdowns .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* to make webkit and moz consistent */
+    box-sizing: border-box;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(var(--primary-rgb), 1);
+    background-color: white !important;
+    border: .125rem solid rgba(var(--primary-rgb), 1) !important;
+    border-radius: 2.5rem;
+    box-shadow: rgba(0, 0, 0, .33) 0 .125rem .375rem;
+    opacity: .5;
+    transition: opacity .2s;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+}
+
+.leaflet-bootstrap-dropdowns .btn svg {
+    fill: rgba(var(--primary-rgb), 1);
+    width: 1rem;
+    height: 1rem;
+}
+
+.leaflet-bootstrap-dropdowns .btn:hover,
+.leaflet-bootstrap-dropdowns .btn.show {
+    opacity: 1;
+}
+
+.leaflet-bootstrap-dropdowns .btn.show {
+    color: white;
+    background-color: rgba(var(--primary-rgb), 1) !important;
+    border-color: white !important;
+}
+
+.leaflet-bootstrap-dropdowns .btn.show svg {
+    fill: white;
+}
+
+.leaflet-bootstrap-dropdowns .btn:focus {
+    box-shadow: 0 0 0 .25rem rgba(var(--primary-rgb), .25);
+}
+
+.leaflet-bootstrap-dropdowns .btn:focus-visible {
+    border: .125rem solid rgba(0, 0, 0, 1) !important;
+}
+
+.leaflet-bootstrap-dropdowns.menu-1 {
+    position: absolute;
+    margin: 0 !important;
+    left: .5rem;
+    top: .5rem;
+}
+
+.leaflet-bootstrap-dropdowns .dropdown-item {
+    font-weight: normal;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+}
+
+.leaflet-bootstrap-dropdowns .dropdown-item.current {
+    font-weight: bold;
+    color: rgba(var(--primary-rgb), 1);
+    cursor: default;
+}
+
+.leaflet-bootstrap-dropdowns .dropdown-item:active,
+.leaflet-bootstrap-dropdowns .dropdown-item:hover,
+.leaflet-bootstrap-dropdowns .dropdown-item.current:active {
+    color: white;
+    background-color: rgba(var(--primary-rgb), 1) !important;
+}
+
+.leaflet-bootstrap-dropdowns .dropdown-item.current:hover {
+    color: white;
+    background-color: rgba(128, 128, 128, 1) !important;
+}

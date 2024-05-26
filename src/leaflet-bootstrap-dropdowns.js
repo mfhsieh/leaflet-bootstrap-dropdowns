@@ -76,8 +76,6 @@
 
                 if (item.current) {
                     L.DomUtil.addClass(anchor, "current");
-                    if (item.title || item.ariaLabel) anchor.setAttribute("aria-label", item.ariaLabel ? `current page / ${item.ariaLabel}` : `current page / ${item.title}`);
-                    else anchor.setAttribute("aria-label", "current page");
                     L.DomEvent.on(anchor, "click", L.DomEvent.stopPropagation);
                 } else {
                     if (item.href && item.href !== "#") {

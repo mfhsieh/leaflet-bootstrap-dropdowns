@@ -76,6 +76,8 @@
 }
 
 .leaflet-bootstrap-dropdowns .dropdown-item {
+    font-family: var(--bs-body-font-family);
+    font-size: 1.25rem;
     font-weight: normal;
     color: black;
     cursor: pointer;
@@ -84,6 +86,11 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -khtml-user-select: none;
+}
+
+.leaflet-bootstrap-dropdowns .dropdown-item i {
+    width: 1.75rem;
+    text-align: center;
 }
 
 .leaflet-bootstrap-dropdowns .dropdown-item.current {

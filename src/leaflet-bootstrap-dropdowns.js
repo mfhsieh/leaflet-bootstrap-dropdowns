@@ -34,7 +34,12 @@
     const control = L.Control.extend({
         options: {
             className: "",
-            html: '<svg width="16" height="16" viewBox="0 0 16 16"><rect width="14" height="3" x="1" y="1" rx="0.5" ry="0.5" /><rect width="14" height="3" x="1" y="6.5" rx="0.5" ry="0.5" /><rect width="14" height="3" x="1" y="12" rx="0.5" ry="0.5" /></svg>',
+            html: `
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect width="14" height="3" x="1" y="1" rx="0.5" ry="0.5" />
+  <rect width="14" height="3" x="1" y="6.5" rx="0.5" ry="0.5" />
+  <rect width="14" height="3" x="1" y="12" rx="0.5" ry="0.5" />
+</svg>`,
             title: "menu",
             ariaLabel: "",
             menuItems: [],  // separator, html, title, ariaLabel, current, href, target, afterClick
@@ -76,7 +81,8 @@
 
                 if (item.current) {
                     L.DomUtil.addClass(anchor, "current");
-                    L.DomEvent.on(anchor, "click", L.DomEvent.stopPropagation);
+                    anchor.href = "#";
+                    L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
                 } else {
                     if (item.href && item.href !== "#") {
                         anchor.href = item.href;

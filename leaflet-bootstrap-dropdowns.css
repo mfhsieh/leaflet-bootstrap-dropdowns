@@ -25,7 +25,7 @@
     margin: 0;
     font-size: 1.375rem;
     color: white;
-    background-color: rgba(var(--primary-rgb), 1) !important;
+    background-color: rgba(var(--bs-primary-rgb), 1) !important;
     border: .125rem solid white !important;
     border-radius: 2.5rem;
     box-shadow: rgba(0, 0, 0, .33) 0 .125rem .375rem;
@@ -51,13 +51,13 @@
 } */
 
 .leaflet-bootstrap-dropdowns .btn.show {
-    color: rgba(var(--primary-rgb), 1);
+    color: rgba(var(--bs-primary-rgb), 1);
     background-color: white !important;
-    border-color: rgba(var(--primary-rgb), 1) !important;
+    border-color: rgba(var(--bs-primary-rgb), 1) !important;
 }
 
 .leaflet-bootstrap-dropdowns .btn.show svg {
-    fill: rgba(var(--primary-rgb), 1);
+    fill: rgba(var(--bs-primary-rgb), 1);
 }
 
 .leaflet-bootstrap-dropdowns .btn:focus {
@@ -66,7 +66,7 @@
 
 .leaflet-bootstrap-dropdowns .btn:focus-visible {
     /* border-color: black !important; */
-    border-color: rgba(var(--primary-rgb), 1) !important;
+    border-color: rgba(var(--bs-primary-rgb), 1) !important;
 }
 
 .leaflet-bootstrap-dropdowns.menu-1 {
@@ -96,7 +96,7 @@
 
 .leaflet-bootstrap-dropdowns .dropdown-item.current {
     font-weight: bold;
-    color: rgba(var(--primary-rgb), 1);
+    color: rgba(var(--bs-primary-rgb), 1);
     cursor: default;
 }
 
@@ -104,7 +104,7 @@
 .leaflet-bootstrap-dropdowns .dropdown-item:hover,
 .leaflet-bootstrap-dropdowns .dropdown-item.current:active {
     color: white;
-    background-color: rgba(var(--primary-rgb), 1) !important;
+    background-color: rgba(var(--bs-primary-rgb), 1) !important;
 }
 
 .leaflet-bootstrap-dropdowns .dropdown-item.current:hover {

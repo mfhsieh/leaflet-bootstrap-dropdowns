@@ -31,9 +31,8 @@
         }
 
         #map {
-            height: calc(var(--vh, 1vh) * 96);
-            width: 96vw;
-            margin: calc(var(--vh, 1vh) * 2) auto 0 auto;
+            height: calc(var(--vh, 1vh) * 100);
+            width: 100vw;
         }
     </style>
 </head>
@@ -68,29 +67,29 @@
             className: "menu-1",
             menuItems: [{
                 html: '<i class="fas fa-map-marked-alt"></i> Do Something',
+                title: "Do Something",
                 afterClick: () => {
                     alert("Do Something");
                 },
-                title: "Do Something",
             },
             {
                 html: '<i class="fas fa-share"></i> Share',
-                current: true,
                 title: "current: Share",
+                current: true,
             },
             {
                 html: '<i class="fas fa-external-link-alt"></i> External Link',
+                title: "External Link",
                 href: "https://leafletjs.com/",
                 target: "_blank",
-                title: "External Link",
             },
             {
                 separator: true,
             },
             {
                 html: '<i class="fas fa-info-circle"></i> About',
-                href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",
                 title: "About",
+                href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",
             }],
         }).addTo(map);
 

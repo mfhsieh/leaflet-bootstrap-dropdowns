@@ -13,14 +13,14 @@
  * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git 
  * 
  */
-/* @-moz-document url-prefix() {
+@-moz-document url-prefix() {
 
     .leaflet-bootstrap-dropdowns button .fa,
     .leaflet-bootstrap-dropdowns button .fas {
         margin-top: .05rem;
         margin-bottom: -.05rem;
     }
-} */
+}
 
 .leaflet-bootstrap-dropdowns .btn {
     display: flex;

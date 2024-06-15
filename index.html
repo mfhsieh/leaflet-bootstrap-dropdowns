@@ -50,8 +50,8 @@
         set_viewport();
         window.addEventListener("resize", set_viewport);
 
-        let map = new L.Map("map", {
-            center: [25.048003, 121.517062],
+        const map = new L.Map("map", {
+            center: [25.0487037, 121.5143449],
             zoom: 13,
             zoomControl: false,
         });
@@ -64,34 +64,51 @@
 
         new L.Control.BootstrapDropdowns({
             position: "topleft",
-            className: "menu-1",
+            className: "menu",
             // html: '<i class="fas fa-bars"></i>',
-            menuItems: [{
-                html: '<i class="fas fa-map-marked-alt"></i> Do Something',
-                title: "Do Something",
-                afterClick: () => {
-                    alert("Do Something");
+            menuItems: [
+                {
+                    html: '<i class="fas fa-map-marked-alt"></i> Open Street Map',
+                    title: "Open Street Map",
+                    current: true,  // current page
                 },
-            },
-            {
-                html: '<i class="fas fa-share"></i> Share',
-                title: "current: Share",
-                current: true,
-            },
-            {
-                html: '<i class="fas fa-external-link-alt"></i> External Link',
-                title: "External Link",
-                href: "https://leafletjs.com/",
-                target: "_blank",
-            },
-            {
-                separator: true,
-            },
-            {
-                html: '<i class="fas fa-info-circle"></i> About',
-                title: "About",
-                href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",
-            }],
+                {
+                    html: '<i class="fas fa-exclamation-triangle"></i> Open Alert',
+                    title: "Open Alert",
+                    afterClick: () => {  // callback
+                        alert("Open Alert!");
+                    },
+                },
+                {
+                    separator: true,  // separator
+                },
+                {
+                    html: '<i class="fas fa-external-link-square-alt"></i> Leaflet.IconEx',
+                    title: "leaflet-iconex",
+                    href: "https://github.com/mfhsieh/leaflet-iconex/",  // href with target
+                    target: "_blank",
+                },
+                {
+                    html: '<i class="fas fa-external-link-square-alt"></i> Leaflet.SimpleLocate',
+                    title: "leaflet-simple-locate",
+                    href: "https://github.com/mfhsieh/leaflet-simple-locate/",  // href with target
+                    target: "_blank",
+                },
+                {
+                    html: '<i class="fas fa-external-link-square-alt"></i> Leaflet.ZoomEx',
+                    title: "leaflet-zoomex",
+                    href: "https://github.com/mfhsieh/leaflet-zoomex/",  // href with target
+                    target: "_blank",
+                },
+                {
+                    separator: true,  // separator
+                },
+                {
+                    html: '<i class="fab fa-github"></i> About',
+                    title: "About",
+                    href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",  // href without target
+                }
+            ],
         }).addTo(map);
 
     </script>

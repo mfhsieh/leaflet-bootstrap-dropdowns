@@ -1,21 +1,23 @@
-/* 
- * Leaflet Control BootstrapDropdowns v0.1 - 2024-05-24 
- * 
+/*
+ * Leaflet.BootstrapDropdowns v1.0.0 - 2024-6-15
+ *
  * Copyright 2024 mfhsieh
- * mfhsieh@gmail.com 
- * 
- * Licensed under the MIT license. 
- * 
- * Demos: 
+ * mfhsieh@gmail.com
+ *
+ * Licensed under the MIT license.
+ *
+ * Demos:
  * https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/
- * 
- * Source: 
- * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git 
- * 
+ *
+ * Source:
+ * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git
+ *
  */
 @-moz-document url-prefix() {
 
     .leaflet-bootstrap-dropdowns button .fa,
+    .leaflet-bootstrap-dropdowns button .fab,
+    .leaflet-bootstrap-dropdowns button .far,
     .leaflet-bootstrap-dropdowns button .fas {
         margin-top: .05rem;
         margin-bottom: -.05rem;
@@ -83,7 +85,7 @@
     border-color: rgba(var(--primary-rgb), 1) !important;
 }
 
-.leaflet-bootstrap-dropdowns.menu-1 {
+.leaflet-bootstrap-dropdowns.menu {
     position: absolute;
     margin: 0 !important;
     left: .5rem;

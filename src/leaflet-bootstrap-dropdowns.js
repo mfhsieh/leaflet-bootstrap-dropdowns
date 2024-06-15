@@ -1,17 +1,17 @@
-/* 
- * Leaflet Control BootstrapDropdowns v0.1 - 2024-05-24 
- * 
+/*
+ * Leaflet.BootstrapDropdowns v1.0.0 - 2024-6-15
+ *
  * Copyright 2024 mfhsieh
- * mfhsieh@gmail.com 
- * 
- * Licensed under the MIT license. 
- * 
- * Demos: 
+ * mfhsieh@gmail.com
+ *
+ * Licensed under the MIT license.
+ *
+ * Demos:
  * https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/
- * 
- * Source: 
- * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git 
- * 
+ *
+ * Source:
+ * git@github.com:mfhsieh/leaflet-bootstrap-dropdowns.git
+ *
  */
 (function (factory) {
 

@@ -8,12 +8,12 @@ A Leaflet plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3
 
 # Usage
 
-Simply include the [JS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/src/leaflet-bootstrap-dropdowns.js) and [CSS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/examples/demo.css) in the head.
+Simply include the [JS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/dist/leaflet-bootstrap-dropdowns.min.js) and [CSS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/examples/demo.css) in the head.
 
 ```
 <head>
     ...
-    <script src="leaflet-bootstrap-dropdowns.js"></script>
+    <script src="dist/leaflet-bootstrap-dropdowns.min.js"></script>
     <link rel="stylesheet" href="demo.css" />
     ...
 </head>

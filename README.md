@@ -63,11 +63,11 @@ For more examples, refer to this [demo](https://mfhsieh.github.io/leaflet-bootst
 
 | Option    | Type   | Default                                                                                      | Description                                                                                                                     |
 | --------- | ------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| className | String | ""                                                                                           | A custom CSS class name to assign to the control.                                                                               |
-| menuItems | List   | []                                                                                           | The menu items in dropdowns. (refer: [index.html](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/index.html)) |
-| html      | String | [menu.svg](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/images/menu.svg) | The HTML content of the button.                                                                                                 |
-| title     | String | "menu"                                                                                       | The title attribute of the button.                                                                                              |
-| ariaLabel | String | ""                                                                                           | The aria-label attribute of the button. If its value is an empty string, it will be equal to "title".                           |
+| className | String | ""                                                                                           | the custom CSS class name assigned to the control                                                                               |
+| menuItems | List   | []                                                                                           | the menu items in dropdowns (refer to [index.html](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/index.html)) |
+| html      | String | [menu.svg](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/images/menu.svg) | the HTML content of the button                                                                                                 |
+| title     | String | "menu"                                                                                       | the "title" attribute of the button                                                                                              |
+| ariaLabel | String | ""                                                                                           | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title".                           |
 
 # Where
 

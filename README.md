@@ -10,7 +10,7 @@ A Leaflet plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3
 
 Simply include the [JS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/dist/leaflet-bootstrap-dropdowns.min.js) and [CSS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/examples/demo.css) in the head.
 
-```
+```html
 <head>
     ...
     <script src="dist/leaflet-bootstrap-dropdowns.min.js"></script>
@@ -21,7 +21,7 @@ Simply include the [JS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/b
 
 And add the control to the map.
 
-```
+```js
 new L.Control.BootstrapDropdowns({
     position: "topleft",
     className: "menu",

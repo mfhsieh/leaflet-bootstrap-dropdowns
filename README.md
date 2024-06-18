@@ -8,7 +8,7 @@ A Leaflet plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3
 
 # Usage
 
-Simply include the [JS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/dist/leaflet-bootstrap-dropdowns.min.js) and [CSS](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/examples/demo.css) in the head.
+Simply include the [JS](dist/leaflet-bootstrap-dropdowns.min.js) and [CSS](examples/demo.css) in the head.
 
 ```html
 <head>
@@ -56,7 +56,7 @@ new L.Control.BootstrapDropdowns({
 }).addTo(map);
 ```
 
-For more examples, refer to this [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) (code: [index.html](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/index.html), [demo.css](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/examples/demo.css)).
+For more examples, refer to this [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) (code: [index.html](index.html), [demo.css](examples/demo.css)).
 
 
 # Options
@@ -64,8 +64,8 @@ For more examples, refer to this [demo](https://mfhsieh.github.io/leaflet-bootst
 | Option    | Type   | Default                                                                                      | Description                                                                                                                     |
 | --------- | ------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | className | String | ""                                                                                           | the custom CSS class name assigned to the control                                                                               |
-| menuItems | List   | []                                                                                           | the menu items in dropdowns (refer to [index.html](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/index.html)) |
-| html      | String | refer to [menu.svg](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns/blob/main/images/menu.svg) | the HTML content of the button                                                                                                 |
+| menuItems | List   | []                                                                                           | the menu items in dropdowns (refer to [index.html](index.html)) |
+| html      | String | refer to [menu.svg](images/menu.svg) | the HTML content of the button                                                                                                 |
 | title     | String | "menu"                                                                                       | the "title" attribute of the button                                                                                              |
 | ariaLabel | String | ""                                                                                           | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title".                           |
 

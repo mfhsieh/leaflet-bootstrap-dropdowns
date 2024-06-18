@@ -4,7 +4,7 @@ Leaflet.BootstrapDropdowns
 A Leaflet plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3/components/dropdowns/). Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
 * Demo Page: [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) 
-* Current Version: v1.0.0
+* Current Version: v1.0.1
 
 # Usage
 
@@ -61,13 +61,13 @@ For more examples, refer to this [demo](https://mfhsieh.github.io/leaflet-bootst
 
 # Options
 
-| Option    | Type   | Default                                                                                      | Description                                                                                                                     |
-| --------- | ------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| className | String | ""                                                                                           | the custom CSS class name assigned to the control                                                                               |
-| menuItems | List   | []                                                                                           | the menu items in dropdowns (refer to [index.html](index.html)) |
-| html      | String | refer to [menu.svg](images/menu.svg) | the HTML content of the button                                                                                                 |
-| title     | String | "menu"                                                                                       | the "title" attribute of the button                                                                                              |
-| ariaLabel | String | ""                                                                                           | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title".                           |
+| Option    | Type   | Default                              | Description                                                                                      |
+| --------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| className | String | ""                                   | the custom CSS class name assigned to the control                                                |
+| menuItems | List   | []                                   | the menu items in dropdowns (refer to [index.html](index.html))                                  |
+| html      | String | refer to [menu.svg](images/menu.svg) | the HTML content of the button                                                                   |
+| title     | String | "menu"                               | the "title" attribute of the button                                                              |
+| ariaLabel | String | ""                                   | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title". |
 
 # Where
 

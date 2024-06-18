@@ -1,5 +1,5 @@
 /*
- * Leaflet.BootstrapDropdowns v1.0.0 - 2024-6-15
+ * Leaflet.BootstrapDropdowns v1.0.1 - 2024-6-15
  *
  * Copyright 2024 mfhsieh
  * mfhsieh@gmail.com
@@ -31,7 +31,7 @@
 })(function (L) {
     "use strict";
 
-    const control = L.Control.extend({
+    const BootstrapDropdowns = L.Control.extend({
         options: {
             className: "",
             html: `
@@ -97,5 +97,9 @@
         },
     });
 
-    return control;
+    L.control.bootstrapDropdowns = function (options) {
+        return new BootstrapDropdowns(options);
+    };
+
+    return BootstrapDropdowns;
 });

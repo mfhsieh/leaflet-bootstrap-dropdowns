@@ -4,7 +4,7 @@ Leaflet.BootstrapDropdowns
 A [Leaflet](https://leafletjs.com/) plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3/components/dropdowns/). Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
 * Demo Page: [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) 
-* Current Version: v1.0.1
+* Current Version: v1.0.2
 * Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
 # Usage
@@ -68,6 +68,8 @@ For more details, refer to this [demo](https://mfhsieh.github.io/leaflet-bootstr
 | menuItems | List   | []                                   | the menu items in dropdowns (refer to [index.html](index.html))                                  |
 | html      | String | refer to [menu.svg](images/menu.svg) | the HTML content of the button                                                                   |
 | title     | String | "menu"                               | the "title" attribute of the button                                                              |
+| target    | String | ""                                   | the "target" attribute of the button                                                             |
+| rel       | String | ""                                   | the "rel" attribute of the button                                                                |
 | ariaLabel | String | ""                                   | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title". |
 
 # Where

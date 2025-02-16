@@ -1,5 +1,5 @@
 /*
- * Leaflet.BootstrapDropdowns v1.0.1 - 2024-6-15
+ * Leaflet.BootstrapDropdowns v1.0.2 - 2025-02-16
  *
  * Copyright 2024 mfhsieh
  * mfhsieh@gmail.com
@@ -42,7 +42,7 @@
 </svg>`,
             title: "menu",
             ariaLabel: "",
-            menuItems: [],  // separator, html, title, ariaLabel, current, href, target, afterClick
+            menuItems: [],  // separator, html, title, ariaLabel, current, href, target, rel, afterClick
         },
 
         initialize: function (options) {
@@ -87,6 +87,7 @@
                     if (item.href && item.href !== "#") {
                         anchor.href = item.href;
                         if (item.target) anchor.target = item.target;
+                        if (item.rel) anchor.rel = item.rel;
                     } else if (item.afterClick) {
                         L.DomEvent.on(anchor, "click", item.afterClick);
                     }

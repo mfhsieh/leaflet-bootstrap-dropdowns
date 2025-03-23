@@ -4,7 +4,7 @@ Leaflet.BootstrapDropdowns
 A [Leaflet](https://leafletjs.com/) plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3/components/dropdowns/). Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
 * Demo Page: [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) 
-* Current Version: v1.0.2
+* Current Version: v1.0.3
 * Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
 # Usage

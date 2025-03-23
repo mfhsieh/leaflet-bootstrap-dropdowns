@@ -1,5 +1,5 @@
 /*
- * Leaflet.BootstrapDropdowns v1.0.2 - 2025-02-16
+ * Leaflet.BootstrapDropdowns v1.0.3 - 2025-03-23
  *
  * Copyright 2024 mfhsieh
  * mfhsieh@gmail.com
@@ -14,24 +14,46 @@
  *
  */
 (function (factory) {
+    if (typeof define === "function" && define.amd) {
+        // AMD module
+        define(["leaflet"], factory);
 
-    if (typeof define === 'function' && define.amd) {  // eslint-disable-line no-undef
-        // define an AMD module that relies on 'leaflet'
-        define(['leaflet'], factory);  // eslint-disable-line no-undef
+    } else if (typeof exports === "object") {
+        // CommonJS module
+        module.exports = factory(require("leaflet"));
 
-    } else if (typeof exports === 'object') {
-        // define a Common JS module that relies on 'leaflet'
-        module.exports = factory(require('leaflet'));  // eslint-disable-line no-undef
-
-    } else if (typeof window !== 'undefined') {
-        // attach your plugin to the global 'L' variable
+    } else if (typeof window !== "undefined") {
+        // Browser globals
         if (typeof window.L === "undefined") throw "Leaflet must be loaded first.";
         window.L.Control.BootstrapDropdowns = factory(window.L);
     }
 })(function (L) {
     "use strict";
 
+    /**
+     * @class BootstrapDropdowns
+     * @extends L.Control
+     * @classdesc A Leaflet control that creates Bootstrap dropdown menus.
+     * @param {Object} options - Control options.
+     */
     const BootstrapDropdowns = L.Control.extend({
+        /**
+         * @property {Object} options - Default options for the control.
+         * @property {string} options.className - Custom CSS class name for the dropdown.
+         * @property {string} options.html - HTML content of the button.
+         * @property {string} options.title - Title attribute of the button.
+         * @property {string} options.ariaLabel - ARIA label for the button.
+         * @property {Array<Object>} options.menuItems - Array of menu items.
+         * @property {boolean} options.menuItems[].separator - If true, adds a separator.
+         * @property {string} options.menuItems[].html - HTML content of the menu item.
+         * @property {string} options.menuItems[].title - Title attribute of the menu item.
+         * @property {string} options.menuItems[].ariaLabel - ARIA label for the menu item.
+         * @property {boolean} options.menuItems[].current - If true, marks the item as current.
+         * @property {string} options.menuItems[].href - Href attribute of the menu item.
+         * @property {string} options.menuItems[].target - Target attribute of the menu item.
+         * @property {string} options.menuItems[].rel - Rel attribute of the menu item.
+         * @property {Function} options.menuItems[].afterClick - Callback function for click event.
+         */
         options: {
             className: "",
             html: `
@@ -45,10 +67,23 @@
             menuItems: [],  // separator, html, title, ariaLabel, current, href, target, rel, afterClick
         },
 
+        /**
+         * @function initialize
+         * @memberof BootstrapDropdowns.prototype
+         * @description Initializes the control with the given options.
+         * @param {Object} options - Control options.
+         */
         initialize: function (options) {
             L.Util.setOptions(this, options);
         },
 
+        /**
+         * @function onAdd
+         * @memberof BootstrapDropdowns.prototype
+         * @description Adds the control to the map.
+         * @param {L.Map} map - The Leaflet map instance.
+         * @returns {HTMLElement} The created dropdown element.
+         */
         onAdd: function (map) {
             this._map = map;
 
@@ -98,6 +133,13 @@
         },
     });
 
+    /**
+     * @function control.bootstrapDropdowns
+     * @memberof L.control
+     * @description Creates a new BootstrapDropdowns control.
+     * @param {Object} options - Control options.
+     * @returns {BootstrapDropdowns} A new BootstrapDropdowns control.
+     */
     L.control.bootstrapDropdowns = function (options) {
         return new BootstrapDropdowns(options);
     };

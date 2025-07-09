@@ -97,9 +97,12 @@
             this._button.innerHTML = this.options.html;
             this._button.title = this.options.title;
             this._button.setAttribute("data-bs-toggle", "dropdown");
-            this._button.setAttribute("data-bs-auto-close", this.options.autoClose || true);
             this._button.setAttribute("aria-expanded", "false");
             this._button.setAttribute("aria-label", this.options.ariaLabel ? this.options.ariaLabel : this.options.title);
+
+            if ("autoClose" in this.options) {
+            	this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
+            }
 
             const ul = L.DomUtil.create("ul", "dropdown-menu", this._dropdown);
 

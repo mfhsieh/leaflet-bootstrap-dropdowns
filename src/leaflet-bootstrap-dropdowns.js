@@ -42,6 +42,7 @@
          * @property {string} options.className - Custom CSS class name for the dropdown.
          * @property {string} options.html - HTML content of the button.
          * @property {string} options.title - Title attribute of the button.
+         * @property {string} options.autoClose - The autoclose behaviour of the button (true|inside|outside|false)
          * @property {string} options.ariaLabel - ARIA label for the button.
          * @property {Array<Object>} options.menuItems - Array of menu items.
          * @property {boolean} options.menuItems[].separator - If true, adds a separator.
@@ -98,6 +99,10 @@
             this._button.setAttribute("data-bs-toggle", "dropdown");
             this._button.setAttribute("aria-expanded", "false");
             this._button.setAttribute("aria-label", this.options.ariaLabel ? this.options.ariaLabel : this.options.title);
+
+            if ("autoClose" in this.options) {
+            	this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
+            }
 
             const ul = L.DomUtil.create("ul", "dropdown-menu", this._dropdown);
 

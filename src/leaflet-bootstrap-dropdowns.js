@@ -46,6 +46,7 @@
          * @property {string} options.ariaLabel - ARIA label for the button.
          * @property {Array<Object>} options.menuItems - Array of menu items.
          * @property {boolean} options.menuItems[].separator - If true, adds a separator.
+         * @property {boolean} options.menuItems[].header - If true, treat this item as a header.
          * @property {string} options.menuItems[].html - HTML content of the menu item.
          * @property {string} options.menuItems[].title - Title attribute of the menu item.
          * @property {string} options.menuItems[].ariaLabel - ARIA label for the menu item.
@@ -115,22 +116,24 @@
                     continue;
                 }
 
-                const anchor = L.DomUtil.create("a", "dropdown-item", li);
+                const anchor = (item.header) ? L.DomUtil.create("div", "dropdown-header", li) : L.DomUtil.create("a", "dropdown-item", li);
                 if (item.html) anchor.innerHTML = item.html;
                 if (item.title) anchor.title = item.title;
                 if (item.title || item.ariaLabel) anchor.setAttribute("aria-label", item.ariaLabel ? item.ariaLabel : item.title);
 
-                if (item.current) {
-                    L.DomUtil.addClass(anchor, "current");
-                    anchor.href = "#";
-                    L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
-                } else {
-                    if (item.href && item.href !== "#") {
-                        anchor.href = item.href;
-                        if (item.target) anchor.target = item.target;
-                        if (item.rel) anchor.rel = item.rel;
-                    } else if (item.afterClick) {
-                        L.DomEvent.on(anchor, "click", item.afterClick);
+                if(!item.header) {
+                    if (item.current) {
+                        L.DomUtil.addClass(anchor, "current");
+                        anchor.href = "#";
+                        L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
+                    } else {
+                        if (item.href && item.href !== "#") {
+                            anchor.href = item.href;
+                            if (item.target) anchor.target = item.target;
+                            if (item.rel) anchor.rel = item.rel;
+                        } else if (item.afterClick) {
+                            L.DomEvent.on(anchor, "click", item.afterClick);
+                        }
                     }
                 }
                 if (item.disabled) {

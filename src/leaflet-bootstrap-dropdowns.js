@@ -50,6 +50,7 @@
          * @property {string} options.menuItems[].title - Title attribute of the menu item.
          * @property {string} options.menuItems[].ariaLabel - ARIA label for the menu item.
          * @property {boolean} options.menuItems[].current - If true, marks the item as current.
+         * @property {boolean} options.menuItems[].disabled - If true, marks the item as disabled.
          * @property {string} options.menuItems[].href - Href attribute of the menu item.
          * @property {string} options.menuItems[].target - Target attribute of the menu item.
          * @property {string} options.menuItems[].rel - Rel attribute of the menu item.
@@ -131,6 +132,10 @@
                     } else if (item.afterClick) {
                         L.DomEvent.on(anchor, "click", item.afterClick);
                     }
+                }
+                if (item.disabled) {
+                    L.DomUtil.addClass(anchor, "disabled");
+                    anchor.href = "#";
                 }
             }
 

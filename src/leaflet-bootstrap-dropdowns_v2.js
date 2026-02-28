@@ -16,32 +16,33 @@
 import L from "leaflet";
 
 /**
+ * @typedef {object} BootstrapDropdownsOptions
+ * @property {string} [className=""] - Custom CSS class name for the dropdown.
+ * @property {string} [html="(SVG)"] - HTML content of the button (hamburger icon by default).
+ * @property {string} [title="menu"] - Title attribute of the button.
+ * @property {boolean|string} [autoClose=true] - Control the auto-close behavior (true|inside|outside|false).
+ * @property {string} [ariaLabel=""] - ARIA label for the button. Defaults to `title`.
+ * @property {Array<Object>} [menuItems=[]] - Array of menu items.
+ * @property {boolean} [menuItems[].separator=false] - If true, adds a horizontal divider.
+ * @property {boolean} [menuItems[].header=false] - If true, treat this item as a non-clickable header.
+ * @property {string} [menuItems[].html=""] - HTML content of the menu item.
+ * @property {string} [menuItems[].title=""] - Title attribute of the menu item.
+ * @property {string} [menuItems[].ariaLabel=""] - ARIA label for the menu item. Defaults to `title`.
+ * @property {boolean} [menuItems[].current=false] - If true, marks the item as active and prevents navigation.
+ * @property {boolean} [menuItems[].disabled=false] - If true, renders the item as disabled.
+ * @property {string} [menuItems[].href="#"] - Href attribute of the menu item.
+ * @property {string} [menuItems[].target=""] - Target attribute of the menu item.
+ * @property {string} [menuItems[].rel=""] - Rel attribute of the menu item.
+ * @property {Function} [menuItems[].afterClick=undefined] - Callback function to execute when the item is clicked.
+ */
+
+/**
  * @class BootstrapDropdowns
  * @extends L.Control
  * @classdesc A Leaflet control that creates Bootstrap dropdown menus.
  * @param {BootstrapDropdownsOptions} options - Control options.
  */
 const BootstrapDropdowns = L.Control.extend({
-    /**
-     * @typedef {object} BootstrapDropdownsOptions
-     * @property {string} [className=""] - Custom CSS class name for the dropdown.
-     * @property {string} [html="(SVG)"] - HTML content of the button (hamburger icon by default).
-     * @property {string} [title="menu"] - Title attribute of the button.
-     * @property {boolean|string} [autoClose=undefined] - Control the auto-close behavior (true|inside|outside|false).
-     * @property {string} [ariaLabel=""] - ARIA label for the button. Defaults to `title`.
-     * @property {Array<Object>} [menuItems=[]] - Array of menu items.
-     * @property {boolean} [menuItems[].separator=false] - If true, adds a horizontal divider.
-     * @property {boolean} [menuItems[].header=false] - If true, treat this item as a non-clickable header.
-     * @property {string} [menuItems[].html=""] - HTML content of the menu item.
-     * @property {string} [menuItems[].title=""] - Title attribute of the menu item.
-     * @property {string} [menuItems[].ariaLabel=""] - ARIA label for the menu item. Defaults to `title`.
-     * @property {boolean} [menuItems[].current=false] - If true, marks the item as active and prevents navigation.
-     * @property {boolean} [menuItems[].disabled=false] - If true, renders the item as disabled.
-     * @property {string} [menuItems[].href="#"] - Href attribute of the menu item.
-     * @property {string} [menuItems[].target=""] - Target attribute of the menu item.
-     * @property {string} [menuItems[].rel=""] - Rel attribute of the menu item.
-     * @property {Function} [menuItems[].afterClick=undefined] - Callback function to execute when the item is clicked.
-     */
     options: {
         className: "",
         html: `
@@ -52,7 +53,7 @@ const BootstrapDropdowns = L.Control.extend({
 </svg>`,
         title: "menu",
         ariaLabel: "",
-        autoClose: undefined,
+        autoClose: true,
         menuItems: [],
     },
 
@@ -88,7 +89,7 @@ const BootstrapDropdowns = L.Control.extend({
         this._button.setAttribute("aria-expanded", "false");
         this._button.setAttribute("aria-label", this.options.ariaLabel || this.options.title);
 
-        if ("autoClose" in this.options) {
+        if (this.options.autoClose !== undefined && this.options.autoClose !== null) {
             this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
         }
 
@@ -134,7 +135,9 @@ const BootstrapDropdowns = L.Control.extend({
 });
 
 /**
- * Factory function to create a new BootstrapDropdowns control.
+ * Creates a new BootstrapDropdowns instance.
+ * @function bootstrapDropdowns
+ * @description Creates a new BootstrapDropdowns control.
  * @param {BootstrapDropdownsOptions} options - Control options.
  * @returns {BootstrapDropdowns} A new BootstrapDropdowns control.
  */

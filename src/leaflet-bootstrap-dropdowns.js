@@ -42,7 +42,7 @@
          * @property {string} [className=""] - Custom CSS class name for the dropdown.
          * @property {string} [html="(SVG)"] - HTML content of the button (hamburger icon by default).
          * @property {string} [title="menu"] - Title attribute of the button.
-         * @property {boolean|string} [autoClose=undefined] - Control the auto-close behavior (true|inside|outside|false).
+         * @property {boolean|string} [autoClose=true] - Control the auto-close behavior (true|inside|outside|false).
          * @property {string} [ariaLabel=""] - ARIA label for the button. Defaults to `title`.
          * @property {Array<Object>} [menuItems=[]] - Array of menu items.
          * @property {boolean} [menuItems[].separator=false] - If true, adds a horizontal divider.
@@ -67,7 +67,7 @@
 </svg>`,
             title: "menu",
             ariaLabel: "",
-            autoClose: undefined,
+            autoClose: true,
             menuItems: [],
         },
 
@@ -103,7 +103,7 @@
             this._button.setAttribute("aria-expanded", "false");
             this._button.setAttribute("aria-label", this.options.ariaLabel || this.options.title);
 
-            if ("autoClose" in this.options) {
+            if (this.options.autoClose !== undefined && this.options.autoClose !== null) {
                 this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
             }
 

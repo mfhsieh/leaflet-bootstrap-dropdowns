@@ -19,28 +19,28 @@ import L from "leaflet";
  * @class BootstrapDropdowns
  * @extends L.Control
  * @classdesc A Leaflet control that creates Bootstrap dropdown menus.
- * @param {Object} options - Control options.
+ * @param {BootstrapDropdownsOptions} options - Control options.
  */
 const BootstrapDropdowns = L.Control.extend({
     /**
-     * @property {Object} options - Default options for the control.
-     * @property {string} [options.className=""] - Custom CSS class name for the dropdown.
-     * @property {string} [options.html="(SVG)"] - HTML content of the button (hamburger icon by default).
-     * @property {string} [options.title="menu"] - Title attribute of the button.
-     * @property {boolean|string} [options.autoClose=undefined] - Control the auto-close behavior (true|inside|outside|false).
-     * @property {string} [options.ariaLabel=""] - ARIA label for the button. Defaults to `title`.
-     * @property {Array<Object>} [options.menuItems=[]] - Array of menu items.
-     * @property {boolean} [options.menuItems[].separator=false] - If true, adds a horizontal divider.
-     * @property {boolean} [options.menuItems[].header=false] - If true, treat this item as a non-clickable header.
-     * @property {string} [options.menuItems[].html=""] - HTML content of the menu item.
-     * @property {string} [options.menuItems[].title=""] - Title attribute of the menu item.
-     * @property {string} [options.menuItems[].ariaLabel=""] - ARIA label for the menu item. Defaults to `title`.
-     * @property {boolean} [options.menuItems[].current=false] - If true, marks the item as active and prevents navigation.
-     * @property {boolean} [options.menuItems[].disabled=false] - If true, renders the item as disabled.
-     * @property {string} [options.menuItems[].href="#"] - Href attribute of the menu item.
-     * @property {string} [options.menuItems[].target=""] - Target attribute of the menu item.
-     * @property {string} [options.menuItems[].rel=""] - Rel attribute of the menu item.
-     * @property {Function} [options.menuItems[].afterClick=undefined] - Callback function to execute when the item is clicked.
+     * @typedef {object} BootstrapDropdownsOptions
+     * @property {string} [className=""] - Custom CSS class name for the dropdown.
+     * @property {string} [html="(SVG)"] - HTML content of the button (hamburger icon by default).
+     * @property {string} [title="menu"] - Title attribute of the button.
+     * @property {boolean|string} [autoClose=undefined] - Control the auto-close behavior (true|inside|outside|false).
+     * @property {string} [ariaLabel=""] - ARIA label for the button. Defaults to `title`.
+     * @property {Array<Object>} [menuItems=[]] - Array of menu items.
+     * @property {boolean} [menuItems[].separator=false] - If true, adds a horizontal divider.
+     * @property {boolean} [menuItems[].header=false] - If true, treat this item as a non-clickable header.
+     * @property {string} [menuItems[].html=""] - HTML content of the menu item.
+     * @property {string} [menuItems[].title=""] - Title attribute of the menu item.
+     * @property {string} [menuItems[].ariaLabel=""] - ARIA label for the menu item. Defaults to `title`.
+     * @property {boolean} [menuItems[].current=false] - If true, marks the item as active and prevents navigation.
+     * @property {boolean} [menuItems[].disabled=false] - If true, renders the item as disabled.
+     * @property {string} [menuItems[].href="#"] - Href attribute of the menu item.
+     * @property {string} [menuItems[].target=""] - Target attribute of the menu item.
+     * @property {string} [menuItems[].rel=""] - Rel attribute of the menu item.
+     * @property {Function} [menuItems[].afterClick=undefined] - Callback function to execute when the item is clicked.
      */
     options: {
         className: "",
@@ -60,7 +60,7 @@ const BootstrapDropdowns = L.Control.extend({
      * @function initialize
      * @memberof BootstrapDropdowns.prototype
      * @description Initializes the control with the given options.
-     * @param {Object} options - Control options.
+     * @param {BootstrapDropdownsOptions} options - Control options.
      */
     initialize: function (options) {
         L.Util.setOptions(this, options);
@@ -134,20 +134,12 @@ const BootstrapDropdowns = L.Control.extend({
 });
 
 /**
- * @function control.bootstrapDropdowns
- * @memberof L.control
- * @description Creates a new BootstrapDropdowns control.
- * @param {Object} options - Control options.
+ * Factory function to create a new BootstrapDropdowns control.
+ * @param {BootstrapDropdownsOptions} options - Control options.
  * @returns {BootstrapDropdowns} A new BootstrapDropdowns control.
  */
-// Ensure L.control exists (may not be initialized yet in some ESM versions)
-L.control = L.control || {};
-L.control.bootstrapDropdowns = function (options) {
+export const bootstrapDropdowns = function (options) {
     return new BootstrapDropdowns(options);
 };
 
-// Also attach to L.Control for backward compatibility in V2 if needed
-L.Control.BootstrapDropdowns = BootstrapDropdowns;
-
 export default BootstrapDropdowns;
-

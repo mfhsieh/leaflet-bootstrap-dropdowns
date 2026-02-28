@@ -1,82 +1,94 @@
-Leaflet.BootstrapDropdowns
-=
+# Leaflet.BootstrapDropdowns
 
 A [Leaflet](https://leafletjs.com/) plugin to show [bootstrap dropdowns](https://getbootstrap.com/docs/5.3/components/dropdowns/). Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
-* Demo Page: [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) 
-* Current Version: v1.0.3
+* Demo Page: [Leaflet 1 demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/index.html) or [Leaflet 2 demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/index_v2.html)
+* Current Version: v1.0.4 / v2.0.0-alpha.1 (2026-02-28)
 * Tested on desktop and mobile versions of Chrome, Edge, Firefox, and Safari.
 
-# Usage
+## Usage
 
-Simply include the [JS](dist/leaflet-bootstrap-dropdowns.min.js) and [CSS](examples/demo.css) in the head.
+### Leaflet 1.x (Classic)
+
+Simply include the [JS](dist/leaflet-bootstrap-dropdowns.min.js) in the head.
 
 ```html
 <head>
     ...
     <script src="dist/leaflet-bootstrap-dropdowns.min.js"></script>
-    <link rel="stylesheet" href="demo.css" />
     ...
 </head>
 ```
 
-And add the control to the map.
+Then create a `BootstrapDropdowns` instance and add it to the map.
 
 ```js
 new L.Control.BootstrapDropdowns({
     position: "topleft",
-    className: "menu",
     menuItems: [
         {
-            html: '<i class="fas fa-map-marked-alt"></i> Open Street Map',
-            title: "Open Street Map",
-            current: true,  // current page
-        },
-        {
-            html: '<i class="fas fa-exclamation-triangle"></i> Open Alert',
-            title: "Open Alert",
-            afterClick: () => {  // callback
-                alert("Open Alert!");
-            },
-        },
-        {
-            html: '<i class="fas fa-external-link-square-alt"></i> Leaflet.SimpleLocate',
-            title: "leaflet-simple-locate",
-            href: "https://github.com/mfhsieh/leaflet-simple-locate/",  // href with target
-            target: "_blank",
-        },
-        {
-            separator: true,  // separator
-        },
-        {
-            html: '<i class="fab fa-github"></i> About',
-            title: "About",
-            href: "https://github.com/mfhsieh/leaflet-bootstrap-dropdowns",  // href without target
+            html: 'Open Alert',
+            afterClick: () => alert("Hello!")
         }
-    ],
+    ]
 }).addTo(map);
 ```
 
-For more details, refer to this [demo](https://mfhsieh.github.io/leaflet-bootstrap-dropdowns/) (code: [index.html](index.html), [demo.css](examples/demo.css)).
+### Leaflet 2.x (ESM)
 
+For Leaflet 2.x, use the ESM-ready version [leaflet-bootstrap-dropdowns_v2.min.js](dist/leaflet-bootstrap-dropdowns_v2.min.js).
 
-# Options
+```js
+import L from 'leaflet';
+import BootstrapDropdowns from './dist/leaflet-bootstrap-dropdowns_v2.min.js';
 
-| Option    | Type   | Default                              | Description                                                                                      |
-| --------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| className | String | ""                                   | the custom CSS class name assigned to the control                                                |
-| menuItems | List   | []                                   | the menu items in dropdowns (refer to [index.html](index.html))                                  |
-| html      | String | refer to [menu.svg](images/menu.svg) | the HTML content of the button                                                                   |
-| title     | String | "menu"                               | the "title" attribute of the button                                                              |
-| target    | String | ""                                   | the "target" attribute of the button                                                             |
-| rel       | String | ""                                   | the "rel" attribute of the button                                                                |
-| ariaLabel | String | ""                                   | the "aria-label" attribute of the button. If it is an empty string, it will be equal to "title". |
+new BootstrapDropdowns({
+    position: "topleft",
+    menuItems: [
+        {
+            html: 'Open Alert',
+            afterClick: () => alert("Hello!")
+        }
+    ]
+}).addTo(map);
+```
 
-# Where
+For more details, refer to the [Leaflet 1 demo](index.html) or [Leaflet 2 demo](index_v2.html).
+
+## Options
+
+| Option | Type | Default | Description |
+| ---- | ---- | ---- | ---- |
+| className | String | "" | the custom CSS class name assigned to the control |
+| html | String | (SVG) | the HTML content of the button (defaults to a hamburger icon) |
+| title | String | "menu" | the "title" attribute of the button |
+| ariaLabel | String | "" | the "aria-label" attribute of the button. If empty, it defaults to `title`. |
+| autoClose | Boolean/String | true | control the auto-close behavior ([Bootstrap docs](https://getbootstrap.com/docs/5.3/components/dropdowns/#auto-close)) |
+| menuItems | Array | [] | the list of menu items to display |
+
+### Menu Items
+
+Each object in the `menuItems` array can have the following properties:
+
+| Property | Type | Description |
+| ---- | ---- | ---- |
+| html | String | the HTML content of the menu item |
+| title | String | the "title" attribute of the menu item |
+| ariaLabel | String | the "aria-label" attribute. If empty, it defaults to `title`. |
+| separator | Boolean | if `true`, renders a horizontal divider |
+| header | Boolean | if `true`, renders the item as a non-clickable header |
+| current | Boolean | if `true`, marks the item as active and prevents navigation |
+| disabled | Boolean | if `true`, renders the item as disabled |
+| href | String | the URL for the link. If not provided, it defaults to `#` |
+| target | String | the "target" attribute of the link (e.g., `_blank`) |
+| rel | String | the "rel" attribute of the link |
+| afterClick | Function | a callback function to execute when the item is clicked |
+
+## Where
 
 * Source Code: [Github](https://github.com/mfhsieh/leaflet-bootstrap-dropdowns)
 
-# Author
+## Author
 
 * email: mfhsieh at gmail.com
 * Github: [Github](https://github.com/mfhsieh/)

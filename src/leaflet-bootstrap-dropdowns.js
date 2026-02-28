@@ -1,7 +1,7 @@
 /*
- * Leaflet.BootstrapDropdowns v1.0.3 - 2025-03-23
+ * Leaflet.BootstrapDropdowns v1.0.4 - 2026-02-28
  *
- * Copyright 2024 mfhsieh
+ * Copyright 2026 mfhsieh
  * mfhsieh@gmail.com
  *
  * Licensed under the MIT license.
@@ -39,23 +39,23 @@
     const BootstrapDropdowns = L.Control.extend({
         /**
          * @property {Object} options - Default options for the control.
-         * @property {string} options.className - Custom CSS class name for the dropdown.
-         * @property {string} options.html - HTML content of the button.
-         * @property {string} options.title - Title attribute of the button.
-         * @property {string} options.autoClose - The autoclose behaviour of the button (true|inside|outside|false)
-         * @property {string} options.ariaLabel - ARIA label for the button.
-         * @property {Array<Object>} options.menuItems - Array of menu items.
-         * @property {boolean} options.menuItems[].separator - If true, adds a separator.
-         * @property {boolean} options.menuItems[].header - If true, treat this item as a header.
-         * @property {string} options.menuItems[].html - HTML content of the menu item.
-         * @property {string} options.menuItems[].title - Title attribute of the menu item.
-         * @property {string} options.menuItems[].ariaLabel - ARIA label for the menu item.
-         * @property {boolean} options.menuItems[].current - If true, marks the item as current.
-         * @property {boolean} options.menuItems[].disabled - If true, marks the item as disabled.
-         * @property {string} options.menuItems[].href - Href attribute of the menu item.
-         * @property {string} options.menuItems[].target - Target attribute of the menu item.
-         * @property {string} options.menuItems[].rel - Rel attribute of the menu item.
-         * @property {Function} options.menuItems[].afterClick - Callback function for click event.
+         * @property {string} [options.className=""] - Custom CSS class name for the dropdown.
+         * @property {string} [options.html="(SVG)"] - HTML content of the button (hamburger icon by default).
+         * @property {string} [options.title="menu"] - Title attribute of the button.
+         * @property {boolean|string} [options.autoClose=undefined] - Control the auto-close behavior (true|inside|outside|false).
+         * @property {string} [options.ariaLabel=""] - ARIA label for the button. Defaults to `title`.
+         * @property {Array<Object>} [options.menuItems=[]] - Array of menu items.
+         * @property {boolean} [options.menuItems[].separator=false] - If true, adds a horizontal divider.
+         * @property {boolean} [options.menuItems[].header=false] - If true, treat this item as a non-clickable header.
+         * @property {string} [options.menuItems[].html=""] - HTML content of the menu item.
+         * @property {string} [options.menuItems[].title=""] - Title attribute of the menu item.
+         * @property {string} [options.menuItems[].ariaLabel=""] - ARIA label for the menu item. Defaults to `title`.
+         * @property {boolean} [options.menuItems[].current=false] - If true, marks the item as active and prevents navigation.
+         * @property {boolean} [options.menuItems[].disabled=false] - If true, renders the item as disabled.
+         * @property {string} [options.menuItems[].href="#"] - Href attribute of the menu item.
+         * @property {string} [options.menuItems[].target=""] - Target attribute of the menu item.
+         * @property {string} [options.menuItems[].rel=""] - Rel attribute of the menu item.
+         * @property {Function} [options.menuItems[].afterClick=undefined] - Callback function to execute when the item is clicked.
          */
         options: {
             className: "",
@@ -67,7 +67,8 @@
 </svg>`,
             title: "menu",
             ariaLabel: "",
-            menuItems: [],  // separator, html, title, ariaLabel, current, href, target, rel, afterClick
+            autoClose: undefined,
+            menuItems: [],
         },
 
         /**
@@ -100,10 +101,10 @@
             this._button.title = this.options.title;
             this._button.setAttribute("data-bs-toggle", "dropdown");
             this._button.setAttribute("aria-expanded", "false");
-            this._button.setAttribute("aria-label", this.options.ariaLabel ? this.options.ariaLabel : this.options.title);
+            this._button.setAttribute("aria-label", this.options.ariaLabel || this.options.title);
 
             if ("autoClose" in this.options) {
-            	this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
+                this._button.setAttribute("data-bs-auto-close", this.options.autoClose);
             }
 
             const ul = L.DomUtil.create("ul", "dropdown-menu", this._dropdown);
@@ -119,26 +120,27 @@
                 const anchor = (item.header) ? L.DomUtil.create("div", "dropdown-header", li) : L.DomUtil.create("a", "dropdown-item", li);
                 if (item.html) anchor.innerHTML = item.html;
                 if (item.title) anchor.title = item.title;
-                if (item.title || item.ariaLabel) anchor.setAttribute("aria-label", item.ariaLabel ? item.ariaLabel : item.title);
+                if (item.title || item.ariaLabel) anchor.setAttribute("aria-label", item.ariaLabel || item.title);
 
-                if(!item.header) {
+                if (!item.header) {
                     if (item.current) {
                         L.DomUtil.addClass(anchor, "current");
                         anchor.href = "#";
                         L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
-                    } else {
-                        if (item.href && item.href !== "#") {
-                            anchor.href = item.href;
-                            if (item.target) anchor.target = item.target;
-                            if (item.rel) anchor.rel = item.rel;
-                        } else if (item.afterClick) {
-                            L.DomEvent.on(anchor, "click", item.afterClick);
-                        }
+                    } else if (item.href && item.href !== "#") {
+                        anchor.href = item.href;
+                        if (item.target) anchor.target = item.target;
+                        if (item.rel) anchor.rel = item.rel;
+                    } else if (item.afterClick) {
+                        anchor.href = "#";
+                        L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
+                        L.DomEvent.on(anchor, "click", item.afterClick);
                     }
                 }
                 if (item.disabled) {
                     L.DomUtil.addClass(anchor, "disabled");
                     anchor.href = "#";
+                    L.DomEvent.on(anchor, "click", L.DomEvent.preventDefault);
                 }
             }
 

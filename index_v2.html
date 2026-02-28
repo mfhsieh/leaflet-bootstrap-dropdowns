@@ -3,14 +3,18 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Leaflet.BootstrapDropdowns - Demo (v1.0.4)</title>
+    <title>Leaflet.BootstrapDropdowns - Demo (v2.0.0-alpha.1)</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" />
+    <script type="importmap">
+    {
+        "imports": {
+            "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js"
+        }
+    }
+    </script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -20,8 +24,6 @@
 
     <script src="https://kit.fontawesome.com/8132850410.js" crossorigin="anonymous"></script>
 
-    <!-- <script src="src/leaflet-bootstrap-dropdowns.js"></script> -->
-    <script src="dist/leaflet-bootstrap-dropdowns.min.js"></script>
     <link rel="stylesheet" href="examples/demo.css" />
 
     <style>
@@ -46,7 +48,11 @@
 <body>
     <div id="map"></div>
 
-    <script>
+    <script type="module">
+        import L from 'leaflet';
+        import BootstrapDropdowns from './dist/leaflet-bootstrap-dropdowns_v2.min.js';
+        // import BootstrapDropdowns from './src/leaflet-bootstrap-dropdowns_v2.js';
+
         "use strict";
 
         function set_viewport() {
@@ -62,13 +68,13 @@
             zoomControl: false,
         });
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             minZoom: 7,
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
         }).addTo(map);
 
-        new L.Control.BootstrapDropdowns({
+        new BootstrapDropdowns({
             position: "topleft",
             className: "menu",
             // html: '<i class="fas fa-bars"></i>',
